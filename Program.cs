@@ -110,7 +110,7 @@ namespace vocabulary
             }
             else
             {
-                Console.WriteLine("Такой станы нет!");
+                Console.WriteLine("Такой станы нет или вы ввели её неправильно !");
             }
         }
     }
