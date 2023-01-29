@@ -34,10 +34,10 @@ namespace vocabulary
 
             while (isProgramWork)
             {
-                Console.WriteLine($"{CommandDictionaryLook}<--поиск по списку  " +
-                    $"{CommandDictionaryAdd}<--добавить страну в список  " +
-                    $"{CommandDictionaryRemove}<--удалить страну из списка" +
-                    $"{CommandDictionarySearch}<--поиск столицы по названию страны  " +
+                Console.WriteLine($"{CommandDictionaryLook}<--поиск по списку\n  " +
+                    $"{CommandDictionaryAdd}<--добавить страну в список \n " +
+                    $"{CommandDictionaryRemove}<--удалить страну из списка \n" +
+                    $"{CommandDictionarySearch}<--поиск столицы по названию страны \n " +
                     $"{CommandExitProgram}<--выход из программы");
 
                 switch (Console.ReadLine())
