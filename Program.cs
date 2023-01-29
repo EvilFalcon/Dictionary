@@ -34,7 +34,7 @@ namespace vocabulary
 
             while (isProgramWork)
             {
-                Console.WriteLine($"{CommandDictionaryLook}<--поиск по списку\n " +
+                Console.WriteLine($"{CommandDictionaryLook}<--поиск по списку\n" +
                     $"{CommandDictionaryAdd}<--добавить страну в список \n" +
                     $"{CommandDictionaryRemove}<--удалить страну из списка \n" +
                     $"{CommandDictionarySearch}<--поиск столицы по названию страны \n" +
