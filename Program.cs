@@ -93,8 +93,9 @@ namespace vocabulary
         private static Dictionary<string, string> RemoveDictionary(Dictionary<string, string> countries)
         {
             Console.Write("Введите страну чтобы удалить её из списка: ");
-            countries.Remove(Console.ReadLine());
-            Console.WriteLine($"Страна {countries} удалена из списка!");
+            string country = Console.ReadLine();
+            countries.Remove(country);
+            Console.WriteLine($"Страна {country} удалена из списка!");
             return countries;
         }
 
