@@ -34,6 +34,8 @@ namespace vocabulary
 
             while (isProgramWork)
             {
+                Console.Clear();
+
                 Console.WriteLine($"{CommandDictionaryLook}<--Показать весь список\n" +
                     $"{CommandDictionaryAdd}<--добавить страну в список \n" +
                     $"{CommandDictionaryRemove}<--удалить страну из списка \n" +
@@ -62,6 +64,9 @@ namespace vocabulary
                         isProgramWork = false;
                         break;
                 }
+
+                Console.Write("Нажмите любую кнопку для того чтобы продолжить!");
+                Console.ReadKey();
             }
         }
 
