@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace vocabulary
 {
@@ -18,17 +13,7 @@ namespace vocabulary
             const string CommandDictionarySearch = "4";
             const string CommandExitProgram = "5";
 
-            Dictionary<string, string> countries = new Dictionary<string, string>
-            {
-                { "Россия", "Москва" },
-                { "Нидерланды", "Амстердам" },
-                { "Греция", "Афины" },
-                { "Сербия", "Белград" },
-                { "Германия", "Берлин" },
-                { "Швейцария", "Берн" },
-                { "Словакия", "Братислава" },
-                { "Бельгия", "Брюссель" }
-            };
+            Dictionary<string, string> countries = CreateDictionary();
 
             bool isProgramWork = true;
 
@@ -45,19 +30,19 @@ namespace vocabulary
                 switch (Console.ReadLine())
                 {
                     case CommandDictionaryLook:
-                        LookDictionary(countries);
+                        PrintDictionary(countries);
                         break;
 
                     case CommandDictionaryAdd:
-                        countries = AddDictionary(countries);
+                        AddNewWord(countries);
                         break;
 
                     case CommandDictionaryRemove:
-                        countries = RemoveDictionary(countries);
+                        RemoveWord(countries);
                         break;
 
                     case CommandDictionarySearch:
-                        DictionarySearch(countries);
+                        ShowByCountry(countries);
                         break;
 
                     case CommandExitProgram:
@@ -70,7 +55,22 @@ namespace vocabulary
             }
         }
 
-        private static void LookDictionary(Dictionary<string, string> countries)
+        private static Dictionary<string, string> CreateDictionary()
+        {
+            return new Dictionary<string, string>
+            {
+                { "Россия", "Москва" },
+                { "Нидерланды", "Амстердам" },
+                { "Греция", "Афины" },
+                { "Сербия", "Белград" },
+                { "Германия", "Берлин" },
+                { "Швейцария", "Берн" },
+                { "Словакия", "Братислава" },
+                { "Бельгия", "Брюссель" }
+            };
+        }
+
+        private static void PrintDictionary(Dictionary<string, string> countries)
         {
             foreach (var item in countries)
             {
@@ -78,7 +78,7 @@ namespace vocabulary
             }
         }
 
-        private static Dictionary<string, string> AddDictionary(Dictionary<string, string> countries)
+        private static void AddNewWord(Dictionary<string, string> countries)
         {
             Console.Write("\nВведите новую  страну в список : ");
             string country = Console.ReadLine();
@@ -87,21 +87,23 @@ namespace vocabulary
 
             countries.Add(country, capitalCity);
             Console.WriteLine($"Страна {country} и её столица {capitalCity} добавлены в список! ");
-            return countries;
         }
 
-        private static Dictionary<string, string> RemoveDictionary(Dictionary<string, string> countries)
+        private static void RemoveWord(Dictionary<string, string> countries)
         {
             Console.Write("Введите страну чтобы удалить её из списка: ");
             string country = Console.ReadLine();
-            countries.Remove(country);
-            Console.WriteLine($"Страна {country} удалена из списка!");
-            return countries;
+
+            if (countries.ContainsKey(country))
+            {
+                countries.Remove(country);
+                Console.WriteLine($"Страна {country} удалена из списка!");
+            }
         }
 
-        private static void DictionarySearch(Dictionary<string, string> countries)
+        private static void ShowByCountry(Dictionary<string, string> countries)
         {
-            Console.Write("Введите страну для поиска по списку : ");
+            Console.Write("Введите страну чтобы узнать столицу : ");
             string country = Console.ReadLine();
 
             if (countries.ContainsKey(country))
