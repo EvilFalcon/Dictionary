@@ -18,15 +18,17 @@ namespace vocabulary
             const string CommandDictionarySearch = "4";
             const string CommandExitProgram = "5";
 
-            Dictionary<string, string> countries = new Dictionary<string, string>();
-            countries.Add("Россия", "Москва");
-            countries.Add("Нидерланды", "Амстердам");
-            countries.Add("Греция", "Афины");
-            countries.Add("Сербия", "Белград");
-            countries.Add("Германия", "Берлин");
-            countries.Add("Швейцария", "Берн");
-            countries.Add("Словакия", "Братислава");
-            countries.Add("Бельгия", "Брюссель");
+            Dictionary<string, string> countries = new Dictionary<string, string>
+            {
+                { "Россия", "Москва" },
+                { "Нидерланды", "Амстердам" },
+                { "Греция", "Афины" },
+                { "Сербия", "Белград" },
+                { "Германия", "Берлин" },
+                { "Швейцария", "Берн" },
+                { "Словакия", "Братислава" },
+                { "Бельгия", "Брюссель" }
+            };
 
             bool isProgramWork = true;
 
@@ -59,11 +61,10 @@ namespace vocabulary
                     case CommandExitProgram:
                         isProgramWork = false;
                         break;
-
-
                 }
             }
         }
+
         private static void LookDictionary(Dictionary<string, string> countries)
         {
             foreach (var item in countries)
