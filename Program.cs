@@ -82,15 +82,7 @@ namespace vocabulary
         {
             Console.Write("\nВведите новую  страну в список : ");
             string country = Console.ReadLine();
-            bool isCountryInTheList = false;
 
-            //foreach (var countryKey in countries)
-            //{
-            //    if (countryKey.Key == country) 
-            //    {
-            //        isCountryInTheList=true;
-            //    }
-            //}
             if (countries.ContainsKey(country))
             {
                 Console.WriteLine($"Эта страна '{country}' уже есть в списке ");
