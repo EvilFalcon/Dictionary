@@ -72,9 +72,9 @@ namespace vocabulary
 
         private static void PrintDictionary(Dictionary<string, string> countries)
         {
-            foreach (var item in countries)
+            foreach (var capitalCities in countries)
             {
-                Console.WriteLine($"Страна {item.Key} и её столица {item.Value} !");
+                Console.WriteLine($"Страна {capitalCities.Key} и её столица {capitalCities.Value} !");
             }
         }
 
@@ -82,11 +82,26 @@ namespace vocabulary
         {
             Console.Write("\nВведите новую  страну в список : ");
             string country = Console.ReadLine();
-            Console.Write($"\nВведите столицу страны {country} чтобы добавить в список : ");
-            string capitalCity = Console.ReadLine();
+            bool isCountryInTheList = false;
 
-            countries.Add(country, capitalCity);
-            Console.WriteLine($"Страна {country} и её столица {capitalCity} добавлены в список! ");
+            //foreach (var countryKey in countries)
+            //{
+            //    if (countryKey.Key == country) 
+            //    {
+            //        isCountryInTheList=true;
+            //    }
+            //}
+            if (countries.ContainsKey(country))
+            {
+                Console.WriteLine($"Эта страна '{country}' уже есть в списке ");
+            }
+            else
+            {
+                Console.Write($"\nВведите столицу страны {country} чтобы добавить в список : ");
+                string capitalCity = Console.ReadLine();
+                countries.Add(country, capitalCity);
+                Console.WriteLine($"Страна {country} и её столица {capitalCity} добавлены в список! ");
+            }
         }
 
         private static void RemoveWord(Dictionary<string, string> countries)
